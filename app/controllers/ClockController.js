@@ -1,4 +1,5 @@
 import { AppState } from "../AppState.js";
+import { clockService } from "../services/ClockService.js";
 import { Pop } from "../utils/Pop.js";
 import { setHTML } from "../utils/Writer.js";
 
@@ -14,11 +15,7 @@ export class ClockController {
     }
 
     toggleTimeType() {
-        if (AppState.clockType == 12) {
-            AppState.clockType = 24
-        } else {
-            AppState.clockType = 12
-        }
+        clockService.toggleTimeType()
     }
 
 }

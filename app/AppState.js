@@ -29,7 +29,8 @@ class ObservableAppState extends EventEmitter {
 
   // Used to load initial data
   init() {
-
+    this.tempType = loadState('tempType') || 'f'
+    this.clockType = loadState('clockType') || 12
   }
 }
 

@@ -18,18 +18,14 @@ export class WeatherController {
     }
 
     swapTempType() {
-        if (AppState.tempType == 'f') {
-            AppState.tempType = 'c'
-        } else {
-            AppState.tempType = 'f'
-        }
+        weatherService.swapTempType()
         _drawWeatherWidget()
     }
 }
 
 function _drawWeatherWidget() {
     const weather = AppState.weather
-    setHTML('temperature', (AppState.tempType == 'f' ? weather.tempInFahrenheit : weather.tempInCelsius))
+    setHTML('temperature', (AppState.tempType == 'f' ? weather.tempInFahrenheit : (AppState.tempType == 'c' ? weather.tempInCelsius : weather.tempInKelvin)))
     setHTML('weather-conditions', weather.conditions)
     setHTML('weather-img', `<img src="${weather.icon}">`)
 }

@@ -11,4 +11,7 @@ export class Weather {
     get tempInCelsius() {
         return (this.temp - 273.15).toFixed(0) + '<i class="mdi mdi-temperature-celsius"></i>'
     }
+    get tempInKelvin() {
+        return this.temp + '<i class="mdi mdi-temperature-kelvin"></i>'
+    }
 }
