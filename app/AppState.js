@@ -22,6 +22,8 @@ class ObservableAppState extends EventEmitter {
 
   tempType = 'f'
 
+  clockType = 12
+
   /**@type {Todo[]} */
   todos = []
 

@@ -51,6 +51,10 @@ input {
     height: 100vh;
 }
 
+.justify-self-end {
+    justify-self: end;
+}
+
 #quote-content {
     color: white;
 }
