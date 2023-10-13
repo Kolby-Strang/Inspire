@@ -11,7 +11,7 @@ export class ImagesController {
         try {
             await imagesService.getImage()
             document.body.style.backgroundImage = `url(${AppState.backgroundImage.largeImgUrl})`
-            setHTML('image-author', `Image author: ${AppState.backgroundImage.author}`)
+            setHTML('image-author', AppState.backgroundImage.author)
         } catch (error) {
             Pop.error(error)
             console.error(error);

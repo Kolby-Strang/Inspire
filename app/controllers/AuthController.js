@@ -68,10 +68,10 @@ function authButton(user) {
   if (AuthService.loading) { return '' }
   return user && user.isAuthenticated
     ? /* html */ `
-    <button class="btn btn-small btn-dark text-muted selectable" onclick="app.AuthController.logout()"><i class="mdi mdi-logout f-16 text-white"></i></button>
+    <button class="btn btn-small btn-dark text-muted selectable ms-3" onclick="app.AuthController.logout()"><i class="mdi mdi-logout f-16 text-white"></i></button>
   `
     : /* html */ `
-    <button class="btn btn-dark selectable" onclick="app.AuthController.login()">login</button>
+    <button class="btn btn-dark selectable ms-3" onclick="app.AuthController.login()">login</button>
   `
 }
 

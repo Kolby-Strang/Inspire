@@ -1,3 +1,4 @@
+import { Todo } from './models/Todo.js'
 import { Weather } from './models/Weather.js'
 import { EventEmitter } from './utils/EventEmitter.js'
 import { isValidProp } from './utils/IsValidProp.js'
@@ -21,6 +22,8 @@ class ObservableAppState extends EventEmitter {
 
   tempType = 'f'
 
+  /**@type {Todo[]} */
+  todos = []
 
   // Used to load initial data
   init() {

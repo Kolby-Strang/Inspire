@@ -1,6 +1,7 @@
 import { ClockController } from "./controllers/ClockController.js";
 import { ImagesController } from "./controllers/ImagesController.js";
 import { QuotesController } from "./controllers/QuotesController.js";
+import { TodosController } from "./controllers/TodosController.js";
 import { WeatherController } from "./controllers/WeatherController.js";
 
 /**
@@ -10,7 +11,7 @@ import { WeatherController } from "./controllers/WeatherController.js";
 export const router = [
   {
     path: '',
-    controller: [ImagesController, QuotesController, WeatherController, ClockController],
+    controller: [ImagesController, QuotesController, WeatherController, ClockController, TodosController],
     // @ts-ignore
     view: null
   }

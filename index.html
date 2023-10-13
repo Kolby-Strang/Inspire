@@ -16,43 +16,94 @@
 </head>
 
 <body>
-  <!-- SECTION -->
-  <header>
-    <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
-  </header>
 
   <!-- SECTION -->
   <main>
-    <section id="router-view">
+    <section id="router-view" class="p-3 d-flex flex-column justify-content-between height-100">
       <!-- primary viewport -->
+      <div class="d-flex justify-content-between">
 
-      <div id="image-author" class="text-white">Image by: blah blah</div>
+        <div class="glass-card p-3">
+          <p>Image by:</p>
+          <p id="image-author" class="fw-bold"></p>
+        </div>
 
-      <div>
-        <p id="quote-content"></p>
-        <p id="quote-author" class="text-end"></p>
+        <div class="flex-grow-1 justify-content-end align-items-center d-flex glass-card p-3" id="authstate">
+        </div>
+
       </div>
 
-      <div onclick="app.WeatherController.swapTempType()" class="weather-card">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-8 text-white">
-              <p id="temperature">30<i class="mdi mdi-temperature-celsius"></i></p>
-              <p id="weather-conditions">Sunny</p>
-            </div>
-            <div id="weather-img" class="col-4 p-0">
-              <img src="https://openweathermap.org/img/wn/01d.png">
+
+
+      <div class="d-flex flex-column">
+
+        <div class="w-75 align-self-center glass-card p-3">
+          <p id="quote-content"></p>
+          <p id="quote-author" class="text-end"></p>
+        </div>
+
+        <div class="d-flex justify-content-around align-items-center">
+          <div onclick="app.WeatherController.swapTempType()" role="button" class="glass-card">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-8">
+                  <p id="temperature">30<i class="mdi mdi-temperature-celsius"></i></p>
+                  <p id="weather-conditions">Sunny</p>
+                </div>
+                <div id="weather-img" class="col-4 p-0">
+                  <img src="https://openweathermap.org/img/wn/01d.png">
+                </div>
+              </div>
             </div>
           </div>
+
+          <div class="clock">
+            <p id="clock"></p>
+          </div>
+
+          <div class="glass-card">
+            <button id="todo-count" class="btn text-white" type="button" onclick="app.TodosController.toggleTodos()">
+              Login to Access Todos
+            </button>
+          </div>
+
         </div>
+
       </div>
-
-      <div id="clock" class="fs-1 fw-bold text-white">09:00am</div>
-
-      <div id="todo-container">Todos....</div>
-
     </section>
   </main>
+
+  <!-- OFF CANVAS FOR TODOS -->
+  <div class="offcanvas offcanvas-end glass-card" tabindex="-1" id="todoOffCanvas" aria-labelledby="offcanvasRightLabel"
+    data-bs-backdrop="false">
+
+    <div class="offcanvas-header pb-0">
+      <h5>Todos</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+
+    <div class="offcanvas-body pt-1">
+      <form onsubmit="app.TodosController.createTodo(event)" class="d-flex align-items-center">
+        <input name="description" type="text" placeholder="New Todo...">
+        <button type="submit" class="btn text-white fw-bold fs-3">+</button>
+      </form>
+      <div id="todo-list">
+        <!-- TODOS POPULATE HERE -->
+
+        <div class="d-flex justify-content-between">
+          <div class="d-flex">
+            <div class="me-1">
+              <i class="mdi mdi mdi-checkbox-blank-circle" role="button"></i>
+            </div>
+            <p class="complete-todo">Todo</p>
+          </div>
+          <i class="mdi mdi-trash-can text-danger" role="button"></i>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
 
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
