@@ -1,4 +1,4 @@
-import { Value } from './models/Value.js'
+import { Weather } from './models/Weather.js'
 import { EventEmitter } from './utils/EventEmitter.js'
 import { isValidProp } from './utils/IsValidProp.js'
 import { loadState } from './utils/Store.js'
@@ -9,9 +9,18 @@ class ObservableAppState extends EventEmitter {
   /** @type {import('./models/Account.js').Account | null} */
   // @ts-ignore
   account = null
-  /** @type {import('./models/Value.js').Value[]} */
-  values = loadState('values', [Value])
+
   socketData = []
+
+  backgroundImage = {}
+
+  quote = {}
+
+  /**@type {Weather} */
+  weather
+
+  tempType = 'f'
+
 
   // Used to load initial data
   init() {

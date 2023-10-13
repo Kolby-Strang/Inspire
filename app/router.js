@@ -1,7 +1,7 @@
-import { AboutController } from "./controllers/AboutController.js";
-import { HomeController } from "./controllers/HomeController.js";
-import { ValuesController } from "./controllers/ValuesController.js";
-import { AboutView } from "./views/AboutView.js";
+import { ClockController } from "./controllers/ClockController.js";
+import { ImagesController } from "./controllers/ImagesController.js";
+import { QuotesController } from "./controllers/QuotesController.js";
+import { WeatherController } from "./controllers/WeatherController.js";
 
 /**
  * Register your routes for the application here
@@ -10,20 +10,9 @@ import { AboutView } from "./views/AboutView.js";
 export const router = [
   {
     path: '',
-    controller: HomeController,
-    view: /*html*/`
-    <div class="card">
-      <div class="card-body">
-        <p>Home Page</p>
-        <button class="btn btn-dark" onclick="app.HomeController.testButton()">😎</button>
-      </div>
-    </div>
-    `
-  },
-  {
-    path: '#/about',
-    controller: [AboutController, ValuesController],
-    view: AboutView
+    controller: [ImagesController, QuotesController, WeatherController, ClockController],
+    // @ts-ignore
+    view: null
   }
 ]
 
