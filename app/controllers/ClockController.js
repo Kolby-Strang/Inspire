@@ -28,7 +28,7 @@ function _getFormattedTime(time) {
         const minutes = time.getMinutes() / 10 >= 1 ? time.getMinutes() : "0" + time.getMinutes()
         return `${hours}:${minutes} ${suffix}`
     } else {
-        const hours = time.getHours()
+        const hours = time.getHours() > 9 ? time.getHours() : '0' + time.getHours()
         const minutes = time.getMinutes() / 10 >= 1 ? time.getMinutes() : "0" + time.getMinutes()
         return `${hours}:${minutes}`
     }
