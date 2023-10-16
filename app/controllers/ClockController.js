@@ -26,10 +26,10 @@ function _getFormattedTime(time) {
         const suffix = time.getHours() / 12 >= 1 ? 'PM' : 'AM'
         const hours = time.getHours() / 12 > 1 ? time.getHours() - 12 : time.getHours()
         const minutes = time.getMinutes() / 10 >= 1 ? time.getMinutes() : "0" + time.getMinutes()
-        return `${hours}:${minutes} ${suffix}`
+        return `${hours}${time.getSeconds() % 2 == 0 ? ":" : " "}${minutes} ${suffix}`
     } else {
         const hours = time.getHours() > 9 ? time.getHours() : '0' + time.getHours()
         const minutes = time.getMinutes() / 10 >= 1 ? time.getMinutes() : "0" + time.getMinutes()
-        return `${hours}:${minutes}`
+        return `${hours}${time.getSeconds() % 2 == 0 ? ":" : " "}${minutes}`
     }
 }
